@@ -1,0 +1,60 @@
+{
+  "name": "llm-markdown-guard",
+  "version": "0.1.0",
+  "description": "Stop LLM chat UIs leaking data through markdown images and links (the EchoLeak attack). Sanitizes model output, including token streams, before it renders. Zero dependencies.",
+  "keywords": [
+    "llm",
+    "prompt-injection",
+    "markdown",
+    "exfiltration",
+    "echoleak",
+    "ai-security",
+    "sanitize",
+    "streaming",
+    "chatbot",
+    "openai",
+    "anthropic"
+  ],
+  "license": "MIT",
+  "author": "Aman Jha",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amanjhacodes55/llm-markdown-guard.git"
+  },
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean --target es2020",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run build && node --test test/",
+    "prepublishOnly": "npm run typecheck && npm test"
+  },
+  "devDependencies": {
+    "markdown-it": "^15.0.3",
+    "marked": "^18.1.1",
+    "micromark": "^4.0.3",
+    "micromark-extension-gfm": "^3.0.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3"
+  }
+}
