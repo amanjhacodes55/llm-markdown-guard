@@ -46,7 +46,7 @@
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts --clean --target es2020",
     "typecheck": "tsc --noEmit",
-    "test": "npm run build && node --test test/",
+    "test": "npm run build && node --test test/*.test.mjs",
     "prepublishOnly": "npm run typecheck && npm test"
   },
   "devDependencies": {
