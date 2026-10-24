@@ -1,6 +1,6 @@
 {
   "name": "llm-markdown-guard",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Stop LLM chat UIs leaking data through markdown images and links (the EchoLeak attack). Sanitizes model output, including token streams, before it renders. Zero dependencies.",
   "keywords": [
     "llm",
